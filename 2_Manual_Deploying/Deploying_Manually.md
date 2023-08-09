@@ -56,10 +56,10 @@ Generating SSH keys allows you to securely connect to other servers and services
 SSH keys provide a secure way to authenticate without needing to enter your password every time.
 
 ## 7. Clone the Code
-Clone your Node.js application code using SSH keys:
+Clone your Node.js application code using SSH keys. Note here I have already created a sample repository. If only SSH added in Github then only it will be able to clone properly and also :
 
 ```bash
-git clone git@github.com:yourusername/your-node-app.git
+git clone git@github.com:thomasjv799/react-sample-app.git
 ```
 
 Cloning your Node.js application's code using SSH keys allows you to obtain the project's source code from a
@@ -87,7 +87,7 @@ files within Apache's web root directory.
 Create a production build of your Node.js application:
 
 ```bash
-cd your-node-app
+cd reactjs-sample-app
 npm run build
 ```
 
@@ -111,10 +111,12 @@ cd /etc/apache2/sites-available
 ```
 Navigating to Apache's sites-available directory is necessary to access and edit Apache's configuration files.
 
-## 13. Create New Site Configuration
+## 13. Create New Site Configuration. 
+
+Here 'vi' is vim which is a text editor, search the internet if you are not familiar with the usage or use other alternative text editor such as nano.
 
 ```bash
-sudo nano 001-reactjs-prod.conf
+sudo vi 001-reactjs-prod.conf
 ```
 
 Inside the configuration file, add the following:

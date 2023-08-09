@@ -1,0 +1,3 @@
+https://www.geeksforgeeks.org/how-to-set-up-apache-web-server-in-aws-ec2-linux-ubuntu-instance/
+
+https://www.linkedin.com/pulse/host-static-website-aws-ec2-chandan-mishra/

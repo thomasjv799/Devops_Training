@@ -1,0 +1,9 @@
+https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions
+
+https://towardsdatascience.com/github-actions-everything-you-need-to-know-to-get-started-537f1dffa0ed
+
+https://www.geeksforgeeks.org/introduction-to-github-actions/
+
+https://www.youtube.com/watch?v=ylEy4eLdhFs
+
+https://www.youtube.com/watch?v=R8_veQiYBjI
