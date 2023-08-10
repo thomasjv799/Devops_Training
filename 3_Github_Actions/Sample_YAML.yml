@@ -1,0 +1,30 @@
+name: Deploy to EC2 Instance
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Build & Deploy
+        env:
+            PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+            HOSTNAME: ${{secrets.HOSTNAME}}
+            USER_NAME: ${secrets.USER_NAME}
+
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME}' 
+              cd /home/ubuntu/reactjs-sample-app &&
+              sudo npm run build &&
+              echo "Sucessfully Build" &&
+              cp -r build /var/www &&
+              cd /etc/apache2/sites-available &&
+              sudo a2ensite 001-reactjs-prod.conf &&
+              sudo systemctl restart apache2
+              '
