@@ -94,7 +94,15 @@ npm run build
 Creating a production build compiles your Node.js application's source code into optimized and minified files. 
 This ensures efficient and performant delivery to users' browsers.
 
-## 11. Copy Build Folder to /var/www
+## 11. Install the Application 
+Since we were cloning from a repository, it is highly likely that "node_modules" directory will be ignored. So we need
+to make sure that these modules are there in our directory and so we install them. For that we go inside the directory and run:
+
+```bash
+npm install
+```
+
+## 12. Copy Build Folder to /var/www
 Copy the build folder to the Apache web root directory:
 
 ```bash
@@ -103,7 +111,7 @@ sudo cp -r build /var/www
 Copying the production build to /var/www makes your application's optimized files available to the Apache web 
 server for serving to users.
 
-## 12. Change Apache Configuration
+## 13. Change Apache Configuration
 Navigate to Apache's sites-available directory:
 
 ```bash
@@ -111,7 +119,7 @@ cd /etc/apache2/sites-available
 ```
 Navigating to Apache's sites-available directory is necessary to access and edit Apache's configuration files.
 
-## 13. Create New Site Configuration. 
+## 14. Create New Site Configuration. 
 
 Here 'vi' is vim which is a text editor, search the internet if you are not familiar with the usage or use other alternative text editor such as nano.
 
@@ -133,11 +141,11 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 Creating a new site configuration file allows you to define how Apache should handle requests for your Node.js application.
 This configuration specifies the domain, document root, and other settings
 
-## 14. Save the Configuration File
+## 15. Save the Configuration File
 Save the configuration file and exit the text editor.
 
 
-## 15. Activate the New Site
+## 16. Activate the New Site
 
 ```bash
 sudo a2ensite 001-reactjs-prod.conf
@@ -145,7 +153,7 @@ sudo a2ensite 001-reactjs-prod.conf
 Activating the new site configuration enables Apache to use the settings defined in the
 configuration file for serving your Node.js application.
 
-## 16. Restart Apache
+## 17. Restart Apache
 Restart the Apache server to apply the changes:
 
 ```bash
