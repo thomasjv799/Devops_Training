@@ -29,4 +29,24 @@ In summary, Jenkins is a powerful automation server that plays a crucial role in
 For more information, visit the [Jenkins website](https://www.jenkins.io/).
 
 
+### Prerequisites
+
+Before we start it is important to make sure that all the prequsities have been met
+
+1. **EC2 Instance:** For this the very first step is to have 2 EC2 machine active, one machine will be our production machine and the other machine will be Jenkins server.
+
+2. **Installing Jenkins:** On the Jenkins Machine, Install Jenkins : https://www.jenkins.io/doc/book/installing/ . Follow the offical webiste step to do it.
+
+3. **Confirm App gets Deployed Sucesfully:** In the production Machine make sure that node and other necessary dependencies is installed. Have a manual deploymenet first just to confirm everything is working in place.
+
+4. **Storing the Keys in respective Machines:** From the production Machine, we need to get the SSH Public Key and Private Key. The Public Key must be stored in our Github account, this is so that we can clone out repo with authentication. Similarly in Jenkins Machine we need to store both the SSH Private Key and Machine Authentication key which is the .pem/.putty file that gets generated while creating the ec2 instance. Refer :
+
+5.  **Communication between Github and Jenkins Machine:** Our Jenkins Machine must be able to know if any push or changes happen to the repository of interest. So for that we need to establish a communication between them. This is achieved using [Github Webhook](https://docs.github.com/en/webhooks-and-events/webhooks/about-webhooks). We set up webhook to achieve this. Refer: 
+
+
+
+
+
+
+
 ![alt-text](https://github.com/thomasjv799/Devops_Training/blob/main/4_Jenkins/Untitled%20design.gif)
