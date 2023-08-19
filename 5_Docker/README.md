@@ -134,6 +134,6 @@ Finally to run it on that system locally
 ```bash
     docker run -d -it -p <PORT>:80 --name reactjs-app-test reactjs-app:v1
 ```
-So using these much commands we can quickly fire up a application very easily.
+So using these much commands we can quickly fire up a application very easily. A Docker CI CD pipeline yaml file has been also added for further experimentation.
      
      
