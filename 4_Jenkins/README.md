@@ -27,3 +27,6 @@
 In summary, Jenkins is a powerful automation server that plays a crucial role in modern software development practices, enabling teams to automate repetitive tasks, accelerate the development cycle, and ensure the quality and reliability of their software applications.
 
 For more information, visit the [Jenkins website](https://www.jenkins.io/).
+
+
+!alt-text(https://github.com/thomasjv799/Devops_Training/blob/main/4_Jenkins/Untitled%20design.gif)
