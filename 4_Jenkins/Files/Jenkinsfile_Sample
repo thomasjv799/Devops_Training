@@ -1,0 +1,46 @@
+pipeline{
+   agent any
+   stages{
+      stage('login server'){
+         steps{
+            sshagent(credentials:[<'CREDENTIAL ID OF PROD MACHINE IN JENKINS'>]){
+               sh 'ssh -o StrictHostKeyChecking=no ubuntu@<IP ADDRESS OF PROD MACHINE> ls -a'
+            }
+         echo "Suceess Login" 
+         }
+      }
+      stage('Clean Old Build'){
+         steps{
+            sshagent(credentials:[<'CREDENTIAL ID OF PROD MACHINE IN JENKINS'>]){
+               sh 'ssh -o StrictHostKeyChecking=no ubuntu@<IP ADDRESS OF PROD MACHINE> sudo rm -rf /home/ubuntu/react-test1/build'
+            }
+         echo "Build Directory Clean Successfull"
+         }
+      }
+      stage('Build'){
+         steps{
+            sshagent(credentials:[<'CREDENTIAL ID OF PROD MACHINE IN JENKINS'>]){
+               sh 'ssh -o StrictHostKeyChecking=no ubuntu@<IP ADDRESS OF PROD MACHINE> ./npm-build-script.sh'
+            }
+         echo "Build Artifcats Successfull"
+         }
+      }
+      stage('Copy the Artifcats to Apache2 Document Root'){
+         steps{
+            sshagent(credentials:[<'CREDENTIAL ID OF PROD MACHINE IN JENKINS'>]){
+               sh 'ssh -o StrictHostKeyChecking=no ubuntu@<IP ADDRESS OF PROD MACHINE> sudo cp -r /home/ubuntu/react-test1/build /var/www'
+            }
+         echo "Artifcats stored in apache folder Successfull"
+         }
+      }
+      stage('Restart the Apache2 Service'){
+         steps{
+            sshagent(credentials:[<'CREDENTIAL ID OF PROD MACHINE IN JENKINS'>]){
+               sh 'ssh -o StrictHostKeyChecking=no ubuntu@<IP ADDRESS OF PROD MACHINE> sudo a2ensite 001-reactjs-prod.conf'
+               sh 'ssh -o StrictHostKeyChecking=no ubuntu@<IP ADDRESS OF PROD MACHINE> sudo systemctl restart apache2'
+            }
+         echo "Apache2 restarted successfully"
+         }
+      }
+   }
+}
