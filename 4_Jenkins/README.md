@@ -46,7 +46,7 @@ Before we start it is important to make sure that all the prequsities have been 
 2. **Storing the Keys in respective Machines and other configurations:** From the production Machine, we need to get the SSH Public Key and Private Key. The Public Key must be stored in our Github account, this is so that we can clone out repo with authentication. Similarly in Jenkins Machine we need to store both the SSH Private Key and Machine Authentication key which is the .pem/.putty file that gets generated while creating the ec2 instance. Also we need to install a SSH agent extension and set [Github Webhook](https://docs.github.com/en/webhooks-and-events/webhooks/about-webhooks) which is used for communication between Jenkins and Github. Detailed steps have been done,  Refer [here](https://github.com/thomasjv799/Devops_Training/blob/main/4_Jenkins/Files/2_HowtoConfigureJenkinsCredentialsandWebhookNotifications.pdf)
 
 
-![alt-text](https://github.com/thomasjv799/Devops_Training/blob/main/4_Jenkins/Untitled%20design.gif)
+![alt-text](https://github.com/thomasjv799/Devops_Training/blob/main/4_Jenkins/Files/Set_Up.gif)
 
 
 3. **Setting up and Running the Pipeline:** Finally we need to run our pipeline, the details for this step is at [here](https://github.com/thomasjv799/Devops_Training/blob/main/4_Jenkins/Files/3_SettingUpJenkinsPipelineforReactSampleAppDeployment.pdf)
